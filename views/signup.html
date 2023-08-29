@@ -1,0 +1,48 @@
+<!-- views/signup.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sai.css">
+     
+</head>
+<style>
+  body {
+      margin: 0; /* Reset default margin */
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: 100vh; /* Use full viewport height */
+      background-image: url('https://thumbs.dreamstime.com/z/futuristic-connection-abstract-illustration-modern-technology-engineering-science-digital-age-ai-generative-271711595.jpg');
+      background-repeat: no-repeat;
+      background-size: cover; /* Use cover to ensure full background coverage */
+
+    }
+  </style>
+<body>
+   
+    <form method="GET" action="/signupSubmit">
+        <div class="two" style="border-color:aqua">
+            <h1 style="color: red; ">** User Sign Up**</h1>
+         <label for="name"> NAME : *
+               <input type="text" id="name" name="name" placeholder="enter the name"  required><br>
+             </label> <label for="email">Email : *</label>
+           <input type="email" placeholder="Enter E-Mail" name="email" id="email" required><br><hr>
+           <label for="mobileNo">MOBILE NO : *
+               <input type = "mobileNo" name="mobileNo" id="mobileNo" placeholder="enter mobile number"  required><br>
+             </label>  <label for="password">password : *</label>
+             <input type="password" placeholder="Enter password" name="password" id="password"><hr>
+             <label for="password">confirm password : *</label>
+             <input type="password" placeholder="Re Enter password" name="confirm_password" id="confirm_password"><hr>
+         <label for="dob">Date of Birth : *</label>
+           <input type="date"id="dob" name="dob" required><br><hr>
+           <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+           <p>Accept the Terms & conditions</p>
+           <p>Already have an account? <a href="/login">LogIn</a></p>
+
+        <button type="submit">Sign Up</button>
+    </div>
+    </form>
+</body>
+</html>
