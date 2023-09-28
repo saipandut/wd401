@@ -1,39 +1,103 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="sai.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-    body {
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#signInButton,
+button#signUpButton {
+    display: inline-block;
+    margin-top: 10px;
+}
+body {
         background-image: url('https://wallpaperaccess.com/full/4115908.jpg');
         background-repeat:no-repeat ;
-      background-size: 100%;
+        background-size: 100%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
       }
-      </style>
-
+    </style>
 </head>
 <body>
+    <div class="container" style="background: linear-gradient(to bottom, #ad08ef, aqua); " >
+               
+        <h1 style="color: rgb(23, 1, 1); ">Welcome to my website Home Page</h1>
+       <h4> <p style="color: rgb(106, 21, 21); ">This dashboard allows you to explore information.</p></h4>
+        
+        <section>
+            <h2>Sign In</h2>
+            <p>Already have an account? Sign in here:</p>
+            <button id="signInButton">Sign In</button>
+        </section>
+        
+        <section>
+            <h2>Sign Up</h2>
+            <p>Don't have an account yet? Sign up here:</p>
+            <button id="signUpButton">Sign Up</button>
 
-        <div class="three">
-            
-            <h1 style="color: red; ">Welcome to Your Country Information Home Page</h1>
-            <p>This dashboard allows you to explore information about different countries.</p>
-            
-            <h2 style="color: red; ">Search for Country Information</h2>
-            <p>Use the search feature to find details about specific countries, including population, languages, currency, and more.</p>
-            
-            <h2 style="color: red; ">About</h2>
-            <p>Learn more about this dashboard and how it can help you discover interesting facts about countries around the world.</p>
-            
-            <h2 style="color: red; ">Logout</h2>
-            <p>click on it <a href="/logout" style="color:orange ">Logout</a></p></p>
-            <h4><a href="/back" style="color: green; ">Back to Dashboard</a></h4>
-        </div>
-    </form>
+        </section>
+    </div>
+
+    <script>
+        const signInButton = document.getElementById("signInButton");
+        const signUpButton = document.getElementById("signUpButton");
+
+        signInButton.addEventListener("click", () => {
+            window.location.href = "/login.html"; 
+        });
+
+        signUpButton.addEventListener("click", () => {
+            window.location.href = "/signup.html"; 
+        });
+    </script>
 </body>
 </html>
-
-

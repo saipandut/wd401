@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Dashboard</title>
+    <link rel="stylesheet" href="sai.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://th.bing.com/th/id/R.41d62814ca1dadddfc751e79bfcef6d1?rik=i%2b7e2rzsN46n0Q&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2014%2f01%2fbeautiful-wallpaper-29.jpg&ehk=H4ckWzqVL%2fG9j9pIIJnQZb6%2frR2nO5xS%2bFpwVgSkfYo%3d&risl=&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+.five {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%;
+}
+
+.five h1 {
+    color: #100101; 
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+label {
+    color: white;
+    font-size: 18px;
+}
+
+#food-input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#food-search-button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#food-search-button:hover {
+    background-color: #45A049; 
+}
+
+#food-results-container {
+    margin-top: 20px;
+}
+
+.meal {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.meal h2 {
+    color: #100101; 
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.meal img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.meal p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+h4 a {
+    color: #4CAF50; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+h4 a:hover {
+    color: #45A049; 
+}
+
+.bottom-links a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    background-color: #4CAF50; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.bottom-links a:hover {
+    background-color: #45A049; 
+}
+    </style>
+</head>
+<body>
+
+
+        <div class="five">
+            <h1 style="color:rgb(16, 1, 1);">Meal Information Search</h1>
+            <label for="food-input" style="color:orangered">Enter a food item:</label>
+            <input type="text" id="food-input">
+            <button id="food-search-button">Search</button>
+            <div id="food-results-container"></div> <h4><a href="/back" style="color:blue">Back to Dashboard</a></h4>
+        </div>
+    <div class="bottom-links">
+        <a href="/logout">Logout</a>
+    </div>
+    <script>const foodResultsContainer = document.getElementById('food-results-container');
+        const foodSearchButton = document.getElementById('food-search-button');
+        
+        function displayFoodData(data) {
+            foodResultsContainer.innerHTML = ''; 
+        
+            if (data.meals) {
+                data.meals.forEach((meal) => {
+                    const mealName = meal.strMeal;
+                    const mealThumbnail = meal.strMealThumb;
+                    const ingredients = [];
+        
+                    for (let i = 1; i <= 20; i++) {
+                        const ingredient = meal[`strIngredient${i}`];
+                        const measure = meal[`strMeasure${i}`];
+                        if (ingredient && measure) {
+                            ingredients.push(`${measure} ${ingredient}`);
+                        }
+                    }
+        
+                    const instructions = meal.strInstructions;
+        
+                    const mealElement = document.createElement('div');
+                    mealElement.classList.add('meal');
+        
+                    const mealNameElement = document.createElement('h2');
+                    mealNameElement.textContent = mealName;
+        
+                    const mealThumbnailElement = document.createElement('img');
+                    mealThumbnailElement.src = mealThumbnail;
+                    mealThumbnailElement.alt = mealName;
+        
+                    const ingredientsElement = document.createElement('p');
+                    ingredientsElement.textContent = `Ingredients: ${ingredients.join(', ')}`;
+        
+                    const instructionsElement = document.createElement('p');
+                    instructionsElement.textContent = `Instructions: ${instructions}`;
+        
+                    mealElement.appendChild(mealNameElement);
+                    mealElement.appendChild(mealThumbnailElement);
+                    mealElement.appendChild(ingredientsElement);
+                    mealElement.appendChild(instructionsElement);
+        
+                    foodResultsContainer.appendChild(mealElement);
+                });
+            } else {
+                foodResultsContainer.innerHTML = 'No results found.';
+            }
+        }
+        
+        function fetchAndDisplayFoodData(food) {
+            const apiUrl = `https://www.themealdb.com/api/json/v1/1/search.php?s=${food}`;
+        
+            fetch(apiUrl)
+                .then((response) => response.json())
+                .then((data) => {
+                    displayFoodData(data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+        
+        foodSearchButton.addEventListener('click', () => {
+            const foodInput = document.getElementById('food-input').value;
+            if (foodInput) {
+                fetchAndDisplayFoodData(foodInput);
+            }
+        });</script>
+</body>
+</html>

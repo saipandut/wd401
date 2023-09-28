@@ -1,4 +1,3 @@
-<!-- views/signin.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,34 +7,34 @@
     <link rel="stylesheet" href="sai.css">
     <style>
         body {
-            margin: 0; /* Reset default margin */
+            margin: 0; 
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 100vh; /* Use full viewport height */
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
             background-image: url('https://static.vecteezy.com/system/resources/previews/001/877/448/large_2x/dark-blue-techno-background-free-vector.jpg');
             background-repeat: no-repeat;
-            background-size: cover; /* Use cover to ensure full background coverage */
+            background-size: cover;
         
           }
           </style>
 </head>
 <body>
 
-    <form method="GET" action="/signinSubmit">
+    <form method="POST" action="/signinSubmit">
         <div class="two">
             <h1 style="color: red; ">** User Log In**</h1>
           <label for="email">Email : *</label>
            <input type="email" placeholder="Enter E-Mail" name="email" id="email" required><br><hr>
        <label for="password">password : *</label>
-             <input type="password" placeholder="Enter password" name="password" id="password"><hr>
+             <input type="password" placeholder="Enter password" name="password" id="password" required><hr>
          <label for="dob">Date of Birth : *</label>
            <input type="date"id="dob" name="dob" required><br><hr>
            <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
            <p>Accept the Terms & conditions</p>
      
   
-        <button type="submit">Sign In</button>
+        <button type="submit"><span>&#x1F511;</span>Sign In</button>
         <p>Don't have an account? <a href="/signup">Sign Up</a></p>
         </div>
     </form>

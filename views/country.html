@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Dashboard</title>
+    <link rel="stylesheet" href="sai.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://th.bing.com/th/id/R.41d62814ca1dadddfc751e79bfcef6d1?rik=i%2b7e2rzsN46n0Q&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2014%2f01%2fbeautiful-wallpaper-29.jpg&ehk=H4ckWzqVL%2fG9j9pIIJnQZb6%2frR2nO5xS%2bFpwVgSkfYo%3d&risl=&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Left-panel styles */
+.left-panel {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%;
+}
+
+.left-panel h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+label {
+    color: #333;
+    font-size: 18px;
+}
+
+#country-input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+#country-search-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#country-search-button:hover {
+    background-color: #45A049; 
+}
+#country-info {
+    margin-top: 20px;
+    text-align: left;
+    color: #333;
+    font-size: 16px;
+}
+h4 a {
+    color: #4CAF50; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+h4 a:hover {
+    color: #45A049; 
+}
+
+.bottom-links a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    background-color: #4CAF50; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.bottom-links a:hover {
+    background-color: #45A049; 
+}
+    </style>
+</head>
+<body>
+
+
+        <div class="left-panel">
+            <h1 style="color:orangered;">Country Information Search</h1>
+            <label for="country-input" style="color:rgb(246, 10, 242);">Enter a country name:</label>
+            <input type="text" id="country-input">
+            <button id="country-search-button">Search</button>
+            <div id="country-info"></div>           
+            <h4><a href="/back" style="color: blue;">Back to Dashboard</a></h4>
+        </div>
+    <div class="bottom-links">
+        <a href="/logout">Logout</a>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>

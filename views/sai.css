@@ -25,7 +25,7 @@ backface-visibility: inherit;
     margin-bottom: 10px;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
-    padding: 12px;
+    padding: 20px;
     border-radius: 20px;
     border-color:chocolate;
     width: 100%;
@@ -92,3 +92,96 @@ backface-visibility: inherit;
     border-width: 5px;
   
   }
+  .navigation {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    text-align: center;
+    background-color: #333;
+padding: 10px;
+padding: 10px;
+border-radius: 5px;
+border-radius: 5px;
+}
+
+.navigation a {
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: large;
+}
+
+
+
+
+.left-panel {
+    width: 50%;
+    padding: 20px;
+    background-color: rgba(255, 0, 170, 0.818);
+    font-size: large; 
+    border-radius: 20px;
+    padding: 20px 40px;
+    width: 300px;
+    margin: 0 auto;
+    font-style: italic;
+     text-decoration: solid;
+  backface-visibility: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 5px solid #860bf9;
+
+}
+
+.right-panel {
+    width: 50%;
+    padding: 20px;
+    font-size: large; 
+    background-color: rgba(0, 0, 255, 0.781); 
+    width: 50%;
+    padding: 20px;
+    font-size: large; 
+    border-radius: 20px;
+    padding: 20px 40px;
+    width: 300px;
+    margin: 0 auto;
+    font-style: italic;
+     text-decoration: solid;
+  backface-visibility: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 5px solid #860bf9;
+}
+
+.meal {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.bottom-links {
+position: fixed;
+bottom: 10px; 
+right: 10px; 
+background-color: #333;
+color: white;
+padding: 10px;
+border-radius: 5px;
+}
+
+.bottom-links a {
+color: white;
+text-decoration: none;
+font-weight: bold;
+}
+
+.five{
+  
+    width: 50%;
+    padding: 20px;
+             font-size: large;
+
+    background-color: rgba(230, 85, 23, 0.781); 
+    padding: 20px 40px;
+
+    border: 5px solid #f90be5;
+    margin: 0; 
+}

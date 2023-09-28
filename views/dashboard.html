@@ -1,37 +1,170 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express Dashboard</title> <!-- Add a title here -->
+    <title>Express Dashboard</title>
     <link rel="stylesheet" href="sai.css">
-</head>
-<style>
-  body {
-    background-image: url('https://th.bing.com/th/id/R.c7acd5ae37baf4c5b6b50b6e84a109b5?rik=Zqgo%2bEOvBNiCnA&riu=http%3a%2f%2fwww.incomeactivator.com%2fimages%2ffreebg5.jpg&ehk=U7paqPqpb2Ex9TLrtkBl47D2Wiq5UDm6N73Tlyza2cE%3d&risl=&pid=ImgRaw&r=0');
-    background-repeat:no-repeat ;
-  background-size: 100%;
-  }
-  </style>
-<body>
-    <!-- Your content goes here -->
- 
-      <div class="two" >
-        <h2 style="color: red; ">Welcome to the country details</h2>
-        <p><a href="/home">Home</a> | <a href="/about">About</a> | <a href="/logout">Logout</a></p>
-      </div>
-      <div class="two" id="country-info">
-        <label for="country-input">Enter Country Name:</label><br>
-        <input type="text" id="country-input"><br>
+ <!--  <style>
+        /* Add your CSS styles here */
+        body {
+            background-image: url(https://th.bing.com/th/id/R.41d62814ca1dadddfc751e79bfcef6d1?rik=i%2b7e2rzsN46n0Q&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2014%2f01%2fbeautiful-wallpaper-29.jpg&ehk=H4ckWzqVL%2fG9j9pIIJnQZb6%2frR2nO5xS%2bFpwVgSkfYo%3d&risl=&pid=ImgRaw&r=0);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .two {
+    display: flex;
+}
+/* scrolling.css */
+.scrolling-text {
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+    overflow: hidden; /* Hide any overflowing text */
+    animation: scroll 10s linear infinite; /* Use the "scroll" animation for scrolling */
+    color:rgb(28, 28, 29);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%); /* Start from the right */
+    }
+    100% {
+        transform: translateX(-100%); /* Move to the left */
+    }
+}
+
+
+
+    </style> -->
+    <style>/* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        <button id="search-button">Search</button>
-      </div>
-      
+        /* Define a primary color variable */
+        :root {
+            --primary-color: #4CAF50; /* Green color - you can change this */
+        }
+        
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://th.bing.com/th/id/R.41d62814ca1dadddfc751e79bfcef6d1?rik=i%2b7e2rzsN46n0Q&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2014%2f01%2fbeautiful-wallpaper-29.jpg&ehk=H4ckWzqVL%2fG9j9pIIJnQZb6%2frR2nO5xS%2bFpwVgSkfYo%3d&risl=&pid=ImgRaw&r=0');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Navigation styles */
+        .navigation {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+        }
+        
+        .navigation h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        /* Scrolling text styles */
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+            animation: scroll 10s linear infinite;
+            color: #1c1c1d;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Navigation links styles */
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .navigation a:hover {
+            background-color: #333;
+        }
+        
+        /* Two-panel styles */
+        .two {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .left-panel,
+        .right-panel {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .left-panel h1,
+        .right-panel h1 {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+        
+        /* Bottom links styles */
+        .bottom-links a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .bottom-links a:hover {
+            background-color: #333;
+        }
+        </style>
+</head>
+<body>
+    <div class="navigation" style="background-color:white; border-radius: 20px;">
+        <h1 style="color: rgb(249, 6, 6);" ><p>Welcome to the Dashboard</p></h1>
+        <h1 class="scrolling-text"><p>You can search the country information and meal information in my website. <span>&#x1F91D;</span></p></h1><br>
+        <a href="/home" style="background-color: #333;"><span>&#x1F3E0;</span>Home</a>
+        <a href="/about" style="background-color: #333;"><span>&#x2139;</span> About</a>
+        <a href="/contact" style="background-color: #333;"><span>&#x1F4DE;</span>Contact</a>
 
-  
+    <div class="two" style="background-color:white;">
+        <div class="left-panel">
+            <h1 style="color:aqua;" >Country Information Search</h1><br>
+                <a href="/country" style="background-color: #333;"><span>&#x1F30D;</span>Country</a>
+        </div>
+        <div class="right-panel">
+            <h1 style="color:aqua;">Meal Information Search</h1><br>
+            <a href="/meal" style="background-color: #333;"><span>&#x1F37D;</span> Meal</a>
 
-</form>
-<script src="dashboard.js"></script>
+        </div>
+    </div>
+</div>
+
+    <div class="bottom-links">
+        <a href="/logout"><span>&#x1F6AA;</span>Logout</a>
+    </div>
+    <script src="dashboard.js"></script>
 </body>
 </html>
